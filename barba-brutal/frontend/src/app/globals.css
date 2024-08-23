@@ -35,6 +35,11 @@ body {
 
 @layer components {
   .container {
-    @apply mx-auto lg:max-w-7xl px-5 lg:px-0
+    @apply mx-auto lg:max-w-7xl px-5 lg:px-0;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-white to-zinc-900;
+    @apply bg-clip-text text-transparent;
   }
 }
