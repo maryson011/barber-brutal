@@ -2,3 +2,14 @@ GET http://localhost:3000/ping
 
 ###
 POST http://localhost:3000/auth/login
+###
+POST http://localhost:3000/auth/registrar
+Content-type: application/json
+
+{
+    "nome": "João da Silva",
+    "email": "jsilva@empresa.com.br",
+    "senha": "#Senha123",
+    "telefone": "(11) 99999-9999",
+    "barbeiro": false
+}
