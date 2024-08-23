@@ -38,3 +38,19 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ====================
 
 > npm i @tabler/icons-react
+> npx shadcn-ui@latest init
+ -  https://ui.shadcn.com/docs/components/accordion
+> npm i framer-motion clsx tailwind-merge
+ -  https://ui.aceternity.com/components/layout-grid
+
+---
+@layer components {
+  .container {
+    @apply mx-auto lg:max-w-7xl px-5 lg:px-0;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-white to-zinc-400;
+    @apply bg-clip-text text-transparent;
+  }
+}

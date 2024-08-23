@@ -1,3 +1,4 @@
+import NossosClientes from "@/components/cliente/NossosClientes";
 import Slogan from "@/components/landing/Slogan";
 import NossosProfissionais from "@/components/profissional/NossosProfissionais";
 import NossosServicos from "@/components/servico/NossosServicos";
@@ -13,6 +14,9 @@ export default function Landing() {
       </SecaoBackground>
       <SecaoBackground imagem="/banners/profissionais.webp">
         <NossosProfissionais />
+      </SecaoBackground>
+      <SecaoBackground imagem="/banners/clientes.webp">
+        <NossosClientes />
       </SecaoBackground>
       <Rodape />
     </div>
