@@ -96,3 +96,8 @@ Learn more about the power of Turborepo:
 > npx prisma init --datasource-provider sqlite 
 > npx prisma migrate dev
 > yarn add @prisma/client
+
+* auth
+> nest g mo auth
+> cd src/auth
+> nest g co auth --flat --no-spec
