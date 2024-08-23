@@ -79,3 +79,18 @@ Learn more about the power of Turborepo:
 - [Filtering](https://turbo.build/repo/docs/core-concepts/monorepos/filtering)
 - [Configuration Options](https://turbo.build/repo/docs/reference/configuration)
 - [CLI Usage](https://turbo.build/repo/docs/reference/command-line-reference)
+
+
+=====================
+
+> npx create-turbo@latest barba-brutal-x
+    - yarn
+
+add frontend
+    - deleted node_modules
+    - deleted next
+    - deleted package-lock.json
+
+> yarn
+> npm i -g @nestjs/cli
+> nest new backend
