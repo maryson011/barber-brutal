@@ -101,3 +101,8 @@ Learn more about the power of Turborepo:
 > nest g mo auth
 > cd src/auth
 > nest g co auth --flat --no-spec
+
+* db
+> nest g mo db
+> cd src/db
+> nest g s prisma --flat --no-spec
