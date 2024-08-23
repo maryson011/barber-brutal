@@ -94,3 +94,9 @@ add frontend
 > yarn
 > npm i -g @nestjs/cli
 > nest new backend
+
+ - prisma
+> yarn add prisma -D
+> npx prisma init --datasource-provider sqlite
+> npx prisma migrate dev
+> yarn add @prisma/client
