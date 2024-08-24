@@ -1,5 +1,5 @@
 import { Body, Controller, Post } from '@nestjs/common';
-import { RegistrarUsuario, Usuario } from '@barbabrutal/core';
+import { LoginUsuario, RegistrarUsuario, Usuario } from '@barbabrutal/core';
 import { UsuarioPrisma } from './usuario.prisma';
 import { BcryptProvider } from './bcrypt.provider';
 
@@ -10,14 +10,16 @@ export class AuthController {
     private readonly cripto: BcryptProvider,
 ) {}
 
-  @Post('login')
-  async login() {
-    return 'login';
-  }
-
   @Post('registrar')
   async registrar(@Body() usuario: Usuario) {
     const CasoDeUso = new RegistrarUsuario(this.repo, this.cripto);
     return await CasoDeUso.executar(usuario);
+  }
+
+  @Post('login')
+  async login(@Body() dados: { email: string; senha: string }) {
+    const casoDeUso = new LoginUsuario(this.repo, this.cripto)
+    const usuario = await casoDeUso.executar({ email: dados.email, senha: dados.senha })
+    return usuario as any;
   }
 }

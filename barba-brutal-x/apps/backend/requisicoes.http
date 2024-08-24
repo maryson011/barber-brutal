@@ -13,3 +13,11 @@ Content-type: application/json
     "telefone": "(10) 99999-9999",
     "barbeiro": false
 }
+###
+POST http://localhost:3000/auth/login
+Content-type: application/json
+
+{
+    "email": "ti@zmail.com.br",
+    "senha": "222@222"
+}
