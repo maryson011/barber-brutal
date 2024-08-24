@@ -120,3 +120,10 @@ Learn more about the power of Turborepo:
 
 * core
 > yarn add tsup
+
+* backend
+> yarn add bcrypt
+> yarn add -D @types/bcrypt
+
+* src/auth
+> nest g pr bcrypt.provider --flat --no-spec

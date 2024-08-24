@@ -1,10 +1,14 @@
 import CasoDeUso from "../../shared/CasoDeUso";
 import Usuario from "../model/Usuario";
+import ProvedorCriptografia from "../provider/ProvedorCriptografia";
 import RepositorioUsuario from "../provider/RepositorioUsuario";
 
 // DDD: Application Service = Caso de Uso = Fluxo da Aplicação
 export default class RegistrarUsuario implements CasoDeUso {
-    constructor(private readonly repo: RepositorioUsuario) {}
+    constructor(
+        private readonly repo: RepositorioUsuario,
+        private readonly cripto: ProvedorCriptografia
+    ) {}
 
     async executar(usuario: Usuario): Promise<any> {
         const usuarioExistente = await this.repo.buscarPorEmail(usuario.email);
@@ -12,6 +16,14 @@ export default class RegistrarUsuario implements CasoDeUso {
         if (usuarioExistente) {
             throw new Error('Usuário já existente');
         }
-        await this.repo.salvar({ ...usuario, barbeiro: false });
+
+        const senhaCriptografada = await this.cripto.criptografar(usuario.senha)
+        const novoUsuario = {
+            ...usuario,
+            senha: senhaCriptografada,
+            barbeiro: false,
+        }
+
+        await this.repo.salvar({ ...novoUsuario });
     }
 }
