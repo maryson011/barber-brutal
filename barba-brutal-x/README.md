@@ -110,3 +110,9 @@ Learn more about the power of Turborepo:
 > cd src/db
 > nest g s prisma --flat --no-spec
 
+* packages
+ - packages/
+> npm init -y -> criará um pakage.json em ./core
+> yarn
+> yarn build
+> yarn run dev
