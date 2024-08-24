@@ -117,3 +117,6 @@ Learn more about the power of Turborepo:
 > yarn build
 > yarn run dev
 > yarn build
+
+* core
+> yarn add tsup

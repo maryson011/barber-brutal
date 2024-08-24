@@ -1,5 +1,5 @@
 import { Body, Controller, HttpException, Post } from '@nestjs/common';
-import { Usuario } from '@barbabrutal/core';
+import { RegistrarUsuario, Usuario } from '@barbabrutal/core';
 import { UsuarioRepositorio } from './usuario.repositorio';
 
 @Controller('auth')
@@ -16,11 +16,15 @@ export class AuthController {
 
     @Post('registrar')
     async registrar(@Body() usuario: Usuario) {
+
         const usuarioExistente = await this.repo.buscarPorEmail(usuario.email)
 
         if (usuarioExistente) {
             throw new HttpException('Usuário já existente', 400)
         }
         await this.repo.salvar({...usuario, barbeiro: false})
+
+        const CasoDeUso = new RegistrarUsuario()
+        return await CasoDeUso.executar(usuario)
     }
 }

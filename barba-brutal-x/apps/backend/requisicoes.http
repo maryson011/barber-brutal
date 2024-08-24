@@ -7,8 +7,8 @@ POST http://localhost:3000/auth/registrar
 Content-type: application/json
 
 {
-    "nome": "Maria Core",
-    "email": "core@empresa.com.br",
+    "nome": "Maria Silva",
+    "email": "silva@empresa.com.br",
     "senha": "2222@fd",
     "telefone": "(10) 99999-9999",
     "barbeiro": false
