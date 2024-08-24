@@ -116,3 +116,4 @@ Learn more about the power of Turborepo:
 > yarn
 > yarn build
 > yarn run dev
+> yarn build

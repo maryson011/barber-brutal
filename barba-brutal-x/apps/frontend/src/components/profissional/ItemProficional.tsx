@@ -1,4 +1,4 @@
-import Profissional from "@/core/profissional/Profissional";
+import { Profissional } from "@barbabrutal/core";
 import { IconBrandInstagram, IconBrandLinkedin, IconBrandX, IconBrandYoutube } from "@tabler/icons-react";
 import Image from "next/image";
 import Avaliacao from "../shared/Avaliacao";
