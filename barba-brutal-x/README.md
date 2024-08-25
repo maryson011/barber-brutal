@@ -124,6 +124,8 @@ Learn more about the power of Turborepo:
 * backend
 > yarn add bcrypt
 > yarn add -D @types/bcrypt
+> yarn add jsonwebtoken
+> yarn add -D @types/jsonwebtoken
 
 * src/auth
 > nest g pr bcrypt.provider --flat --no-spec

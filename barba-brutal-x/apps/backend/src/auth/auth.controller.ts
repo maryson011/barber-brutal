@@ -2,6 +2,7 @@ import { Body, Controller, Post } from '@nestjs/common';
 import { LoginUsuario, RegistrarUsuario, Usuario } from '@barbabrutal/core';
 import { UsuarioPrisma } from './usuario.prisma';
 import { BcryptProvider } from './bcrypt.provider';
+import * as jwt from 'jsonwebtoken';
 
 @Controller('auth')
 export class AuthController {
@@ -20,6 +21,7 @@ export class AuthController {
   async login(@Body() dados: { email: string; senha: string }) {
     const casoDeUso = new LoginUsuario(this.repo, this.cripto)
     const usuario = await casoDeUso.executar({ email: dados.email, senha: dados.senha })
-    return usuario as any;
+    const secret = process.env.JWT_SECRET
+    return jwt.sign(usuario, secret, { expiresIn: '15d', })
   }
 }
