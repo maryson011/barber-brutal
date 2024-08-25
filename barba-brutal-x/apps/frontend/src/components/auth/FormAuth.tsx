@@ -3,6 +3,7 @@ import Image from "next/image"
 import Logo from "../shared/Logo"
 import Link from "next/link"
 import { useState } from "react"
+import useAPI from "@/data/hooks/useAPI"
 
 export default function FormAuth() {
     const [modo, setModo] = useState<'login' | 'cadastro'>('login')
@@ -12,18 +13,21 @@ export default function FormAuth() {
     const [senha, setSenha] = useState('')
     const [telefone, setTelefone] = useState('')
 
+    const { httpPost } = useAPI()
+
     function alternarModo() {
         setModo(modo === 'login' ? 'cadastro' : 'login')
     }
 
-    function submeter() {
+    async function submeter() {
         if (modo === 'login') {
-            console.log('Login', {email, senha})
+            const token = await httpPost('auth/login', { email, senha })
+            console.log(token)
         } else {
             console.log('Cadastro', {nome, email, senha, telefone})
         }
     }
-    
+
     return (
         <div className="flex justify-center items-center h-screen">
             <Image src="/banners/principal.webp" fill alt="banner" />
