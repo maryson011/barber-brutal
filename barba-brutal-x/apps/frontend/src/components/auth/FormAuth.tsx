@@ -7,9 +7,23 @@ import { useState } from "react"
 export default function FormAuth() {
     const [modo, setModo] = useState<'login' | 'cadastro'>('login')
 
+    const [nome, setNome] = useState('')
+    const [email, setEmail] = useState('')
+    const [senha, setSenha] = useState('')
+    const [telefone, setTelefone] = useState('')
+
     function alternarModo() {
         setModo(modo === 'login' ? 'cadastro' : 'login')
     }
+
+    function submeter() {
+        if (modo === 'login') {
+            console.log('Login', {email, senha})
+        } else {
+            console.log('Cadastro', {nome, email, senha, telefone})
+        }
+    }
+    
     return (
         <div className="flex justify-center items-center h-screen">
             <Image src="/banners/principal.webp" fill alt="banner" />
@@ -29,15 +43,39 @@ export default function FormAuth() {
                 </div>
                 <div className="flex flex-col gap-4 w-80">
                     {modo === 'cadastro' && (
-                        <input type="text" placeholder="Nome" className="input"/>
+                        <input 
+                            type="text" 
+                            value={nome}
+                            onChange={(e) => setNome(e.target.value)}
+                            placeholder="Nome" 
+                            className="input"
+                        />
                     )}
-                    <input type="text" placeholder="E-mail" className="input"/>
-                    <input type="password" placeholder="Senha" className="input" />
+                    <input 
+                        type="text"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)} 
+                        placeholder="E-mail" 
+                        className="input"
+                    />
+                    <input 
+                        type="password"
+                        value={senha}
+                        onChange={(e) => setSenha(e.target.value)} 
+                        placeholder="Senha" 
+                        className="input" 
+                    />
                     {modo === 'cadastro' && (
-                        <input type="tel" placeholder="Telefone" className="input" />
+                        <input 
+                            type="tel"
+                            value={telefone}
+                            onChange={(e) => setTelefone(e.target.value)} 
+                            placeholder="Telefone" 
+                            className="input" 
+                        />
                     )}
                     <div className="flex gap-2">
-                        <button className="button flex-1 bg-green-600">
+                        <button onClick={submeter} className="button flex-1 bg-green-600">
                             {modo === 'login' ? 'Entrar' : 'Cadastrar'}
                         </button>
                         <Link href="/" className="button flex-1 flex justify-center">Cancelar</Link>
