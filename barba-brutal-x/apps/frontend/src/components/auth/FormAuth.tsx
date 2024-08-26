@@ -4,6 +4,7 @@ import Logo from "../shared/Logo"
 import Link from "next/link"
 import { useState } from "react"
 import useAPI from "@/data/hooks/useAPI"
+import { IconEye, IconEyeOff } from "@tabler/icons-react"
 
 export default function FormAuth() {
     const [modo, setModo] = useState<'login' | 'cadastro'>('login')
@@ -11,6 +12,7 @@ export default function FormAuth() {
     const [nome, setNome] = useState('')
     const [email, setEmail] = useState('')
     const [senha, setSenha] = useState('')
+    const [mostrarSenha, setMostrarSenha] = useState(false)
     const [telefone, setTelefone] = useState('')
 
     const { httpPost } = useAPI()
@@ -19,13 +21,28 @@ export default function FormAuth() {
         setModo(modo === 'login' ? 'cadastro' : 'login')
     }
 
+    function alterarMostrarSenha() {
+        setMostrarSenha(!mostrarSenha)
+    }
+
     async function submeter() {
         if (modo === 'login') {
             const token = await httpPost('auth/login', { email, senha })
             console.log(token)
+            limparFormulario()
         } else {
-            console.log('Cadastro', {nome, email, senha, telefone})
+            await httpPost('auth/registrar', { nome, email, senha, telefone })
+            limparFormulario()
         }
+    }
+
+    function limparFormulario() {
+        setNome('')
+        setEmail('')
+        setSenha('')
+        setTelefone('')
+        setMostrarSenha(false)
+        setModo('login')
     }
 
     return (
@@ -62,13 +79,20 @@ export default function FormAuth() {
                         placeholder="E-mail" 
                         className="input"
                     />
-                    <input 
-                        type="password"
-                        value={senha}
-                        onChange={(e) => setSenha(e.target.value)} 
-                        placeholder="Senha" 
-                        className="input" 
-                    />
+                    <div className="flex input">
+                        <input 
+                            type={mostrarSenha ? "text" : "password"}
+                            value={senha}
+                            onChange={(e) => setSenha(e.target.value)} 
+                            placeholder="Senha" 
+                            className="flex-1 bg-transparent outline-none" 
+                        />
+                        {mostrarSenha ? (
+                            <IconEyeOff onClick={alterarMostrarSenha} className="text-zinc-400"/>
+                        ) : (
+                            <IconEye onClick={alterarMostrarSenha} className="text-zinc-400"/>
+                        )}
+                    </div>
                     {modo === 'cadastro' && (
                         <input 
                             type="tel"
