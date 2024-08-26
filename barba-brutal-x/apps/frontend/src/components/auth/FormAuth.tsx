@@ -27,7 +27,6 @@ export default function FormAuth() {
             alterarTelefone,
         } = useFormAuth()
 
-    const { usuario } = useSessao()
 
     return (
         <div className="flex justify-center items-center h-screen">
@@ -38,9 +37,6 @@ export default function FormAuth() {
                     bg-black/80
                 "
             >
-                <div>
-                    {usuario?.email ?? 'vaz'}
-                </div>
                 <Logo />
                 <div>
                     {modo === 'login' ? (

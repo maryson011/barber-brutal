@@ -1,6 +1,7 @@
 import { useState } from "react"
 import useAPI from "./useAPI"
 import useSessao from "./useSessao"
+import { useRouter } from "next/navigation"
 
 export default function useFormAuth() {
     const [modo, setModo] = useState<'login' | 'cadastro'>('login')
@@ -12,6 +13,7 @@ export default function useFormAuth() {
 
     const { httpPost } = useAPI()
     const { iniciarSessao } = useSessao()
+    const router = useRouter()
 
     function alternarModo() {
         setModo(modo === 'login' ? 'cadastro' : 'login')
@@ -20,13 +22,22 @@ export default function useFormAuth() {
 
     async function submeter() {
         if (modo === 'login') {
-            const token = await httpPost('auth/login', { email, senha })
-            iniciarSessao(token)
-            limparFormulario()
+            await login()
         } else {
-            await httpPost('auth/registrar', { nome, email, senha, telefone })
-            limparFormulario()
+            await registrar()
+            await login()
         }
+        limparFormulario()
+    }
+
+    async function login() {
+        const token = await httpPost('auth/login', { email, senha })
+        iniciarSessao(token)
+        router.push('/')
+    }
+
+    async function registrar() {
+        await httpPost('auth/registrar', { nome, email, senha, telefone })
     }
 
     function limparFormulario() {
