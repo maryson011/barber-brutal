@@ -129,3 +129,9 @@ Learn more about the power of Turborepo:
 
 * src/auth
 > nest g pr bcrypt.provider --flat --no-spec
+
+* frontend
+> yarn add js-cookie
+> yarn add -D @types/js-cookie
+> yarn add jwt-decode
+> yarn add -D @types/jwt-decode

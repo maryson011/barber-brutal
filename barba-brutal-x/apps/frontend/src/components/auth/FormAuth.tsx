@@ -10,6 +10,7 @@ import CampoSenha from "../shared/formulario/CampoSenha"
 import CampoTexto from "../shared/formulario/CampoTexto"
 import CampoTelefone from "../shared/formulario/CampoTelefone"
 import CampoEmail from "../shared/formulario/CampoEmail"
+import useSessao from "@/data/hooks/useSessao"
 
 export default function FormAuth() {
     const {
@@ -26,6 +27,8 @@ export default function FormAuth() {
             alterarTelefone,
         } = useFormAuth()
 
+    const { usuario } = useSessao()
+
     return (
         <div className="flex justify-center items-center h-screen">
             <Image src="/banners/principal.webp" fill alt="banner" />
@@ -35,6 +38,9 @@ export default function FormAuth() {
                     bg-black/80
                 "
             >
+                <div>
+                    {usuario?.email ?? 'vaz'}
+                </div>
                 <Logo />
                 <div>
                     {modo === 'login' ? (
