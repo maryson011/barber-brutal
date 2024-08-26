@@ -7,6 +7,9 @@ import useAPI from "@/data/hooks/useAPI"
 import { IconEye, IconEyeOff } from "@tabler/icons-react"
 import useFormAuth from "@/data/hooks/useFormAuth"
 import CampoSenha from "../shared/formulario/CampoSenha"
+import CampoTexto from "../shared/formulario/CampoTexto"
+import CampoTelefone from "../shared/formulario/CampoTelefone"
+import CampoEmail from "../shared/formulario/CampoEmail"
 
 export default function FormAuth() {
     const {
@@ -42,30 +45,14 @@ export default function FormAuth() {
                 </div>
                 <div className="flex flex-col gap-4 w-80">
                     {modo === 'cadastro' && (
-                        <input 
-                            type="text" 
-                            value={nome}
-                            onChange={(e) => alterarNome(e.target.value)}
-                            placeholder="Nome" 
-                            className="input"
-                        />
+                        <CampoTexto placeholder="Nome" value={nome} onChangeText={alterarNome}/>
                     )}
-                    <input 
-                        type="text"
-                        value={email}
-                        onChange={(e) => alterarEmail(e.target.value)} 
-                        placeholder="E-mail" 
-                        className="input"
-                    />
+
+                    <CampoEmail placeholder="E-mail" value={email} onChangeText={alterarEmail} />
+                    
                     <CampoSenha placeholder="Senha" value={senha} onChangeText={alterarSenha}/>
                     {modo === 'cadastro' && (
-                        <input 
-                            type="tel"
-                            value={telefone}
-                            onChange={(e) => alterarTelefone(e.target.value)} 
-                            placeholder="Telefone" 
-                            className="input" 
-                        />
+                        <CampoTelefone placeholder="Telefone" value={telefone} onChangeText={alterarTelefone} />
                     )}
                     <div className="flex gap-2">
                         <button onClick={submeter} className="button flex-1 bg-green-600">
