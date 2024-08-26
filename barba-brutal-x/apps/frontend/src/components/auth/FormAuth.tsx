@@ -6,6 +6,7 @@ import { useState } from "react"
 import useAPI from "@/data/hooks/useAPI"
 import { IconEye, IconEyeOff } from "@tabler/icons-react"
 import useFormAuth from "@/data/hooks/useFormAuth"
+import CampoSenha from "../shared/formulario/CampoSenha"
 
 export default function FormAuth() {
     const {
@@ -21,12 +22,6 @@ export default function FormAuth() {
             alterarSenha,
             alterarTelefone,
         } = useFormAuth()
-
-    const [mostrarSenha, setMostrarSenha] = useState(false)
-    
-    function alterarMostrarSenha() {
-        setMostrarSenha(!mostrarSenha)
-    }
 
     return (
         <div className="flex justify-center items-center h-screen">
@@ -62,20 +57,7 @@ export default function FormAuth() {
                         placeholder="E-mail" 
                         className="input"
                     />
-                    <div className="flex input">
-                        <input 
-                            type={mostrarSenha ? "text" : "password"}
-                            value={senha}
-                            onChange={(e) => alterarSenha(e.target.value)} 
-                            placeholder="Senha" 
-                            className="flex-1 bg-transparent outline-none" 
-                        />
-                        {mostrarSenha ? (
-                            <IconEyeOff onClick={alterarMostrarSenha} className="text-zinc-400"/>
-                        ) : (
-                            <IconEye onClick={alterarMostrarSenha} className="text-zinc-400"/>
-                        )}
-                    </div>
+                    <CampoSenha placeholder="Senha" value={senha} onChangeText={alterarSenha}/>
                     {modo === 'cadastro' && (
                         <input 
                             type="tel"
