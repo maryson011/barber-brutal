@@ -5,44 +5,27 @@ import Link from "next/link"
 import { useState } from "react"
 import useAPI from "@/data/hooks/useAPI"
 import { IconEye, IconEyeOff } from "@tabler/icons-react"
+import useFormAuth from "@/data/hooks/useFormAuth"
 
 export default function FormAuth() {
-    const [modo, setModo] = useState<'login' | 'cadastro'>('login')
+    const {
+            modo,
+            nome,
+            email,
+            senha,
+            telefone,
+            alternarModo,
+            submeter,
+            alterarNome,
+            alterarEmail,
+            alterarSenha,
+            alterarTelefone,
+        } = useFormAuth()
 
-    const [nome, setNome] = useState('')
-    const [email, setEmail] = useState('')
-    const [senha, setSenha] = useState('')
     const [mostrarSenha, setMostrarSenha] = useState(false)
-    const [telefone, setTelefone] = useState('')
-
-    const { httpPost } = useAPI()
-
-    function alternarModo() {
-        setModo(modo === 'login' ? 'cadastro' : 'login')
-    }
-
+    
     function alterarMostrarSenha() {
         setMostrarSenha(!mostrarSenha)
-    }
-
-    async function submeter() {
-        if (modo === 'login') {
-            const token = await httpPost('auth/login', { email, senha })
-            console.log(token)
-            limparFormulario()
-        } else {
-            await httpPost('auth/registrar', { nome, email, senha, telefone })
-            limparFormulario()
-        }
-    }
-
-    function limparFormulario() {
-        setNome('')
-        setEmail('')
-        setSenha('')
-        setTelefone('')
-        setMostrarSenha(false)
-        setModo('login')
     }
 
     return (
@@ -67,7 +50,7 @@ export default function FormAuth() {
                         <input 
                             type="text" 
                             value={nome}
-                            onChange={(e) => setNome(e.target.value)}
+                            onChange={(e) => alterarNome(e.target.value)}
                             placeholder="Nome" 
                             className="input"
                         />
@@ -75,7 +58,7 @@ export default function FormAuth() {
                     <input 
                         type="text"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)} 
+                        onChange={(e) => alterarEmail(e.target.value)} 
                         placeholder="E-mail" 
                         className="input"
                     />
@@ -83,7 +66,7 @@ export default function FormAuth() {
                         <input 
                             type={mostrarSenha ? "text" : "password"}
                             value={senha}
-                            onChange={(e) => setSenha(e.target.value)} 
+                            onChange={(e) => alterarSenha(e.target.value)} 
                             placeholder="Senha" 
                             className="flex-1 bg-transparent outline-none" 
                         />
@@ -97,7 +80,7 @@ export default function FormAuth() {
                         <input 
                             type="tel"
                             value={telefone}
-                            onChange={(e) => setTelefone(e.target.value)} 
+                            onChange={(e) => alterarTelefone(e.target.value)} 
                             placeholder="Telefone" 
                             className="input" 
                         />
