@@ -47,7 +47,9 @@ export function ProvedorSessao(props: any) {
     }
 
     function encerrarSessao() {
-
+        cookie.remove(nomeCookie)
+        setSessao({ token: null, usuario: null })
+        console.log('encerrar sessão')
     }
 
     function obterSessao(): Sessao {

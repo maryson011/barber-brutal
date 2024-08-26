@@ -135,3 +135,4 @@ Learn more about the power of Turborepo:
 > yarn add -D @types/js-cookie
 > yarn add jwt-decode
 > yarn add -D @types/jwt-decode
+> npx shadcn-ui@latest add dropdown-menu
