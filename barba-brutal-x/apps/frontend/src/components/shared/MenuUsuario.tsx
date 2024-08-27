@@ -7,7 +7,7 @@ import {
     DropdownMenuTrigger 
 } from "../ui/dropdown-menu"
 import Image from "next/image"
-import { IconHome, IconLogout } from "@tabler/icons-react"
+import { IconCalendar, IconHome, IconLogout } from "@tabler/icons-react"
 import Link from "next/link"
 
 export default function MenuUsuario() {
@@ -31,6 +31,13 @@ export default function MenuUsuario() {
                         <Link href="/" className="flex gap-2">
                             <IconHome size={18}/>
                             <span>Início</span>
+                        </Link>
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem>
+                        <Link href="/agendamento" className="flex gap-2">
+                            <IconCalendar size={18}/>
+                            <span>Agendar</span>
                         </Link>
                     </DropdownMenuItem>
                     <DropdownMenuSeparator />
