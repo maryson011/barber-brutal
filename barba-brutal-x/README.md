@@ -126,6 +126,9 @@ Learn more about the power of Turborepo:
 > yarn add -D @types/bcrypt
 > yarn add jsonwebtoken
 > yarn add -D @types/jsonwebtoken
+> nest g mo agendamento
+> cd src/agendamento
+> nest g co agendamento --flat --no-spec
 
 * src/auth
 > nest g pr bcrypt.provider --flat --no-spec

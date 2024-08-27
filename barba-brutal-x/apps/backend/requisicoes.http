@@ -21,3 +21,7 @@ Content-type: application/json
     "email": "ti@zmail.com.br",
     "senha": "222@222"
 }
+
+
+###
+GET http://localhost:3000/agendamento
