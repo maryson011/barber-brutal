@@ -10,7 +10,6 @@ import CampoSenha from "../shared/formulario/CampoSenha"
 import CampoTexto from "../shared/formulario/CampoTexto"
 import CampoTelefone from "../shared/formulario/CampoTelefone"
 import CampoEmail from "../shared/formulario/CampoEmail"
-import useSessao from "@/data/hooks/useSessao"
 
 export default function FormAuth() {
     const {
