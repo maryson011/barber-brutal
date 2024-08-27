@@ -1,4 +1,4 @@
-import clientes from "@/data/constants/clientes";
+import { clientes } from "@barbabrutal/core";
 import TituloSecao from "../shared/TituloSecao";
 import ItemCliente from "./ItemCliente";
 import { LayoutGrid } from "../ui/layout-grid";

@@ -7,7 +7,6 @@ export default function Page() {
 
     async function executar() {
         const resp = await httpGet('/agendamento')
-        console.log(resp)
     }
     return (
         <div className="flex flex-col gap-4 justify-center items-center h-screen">
