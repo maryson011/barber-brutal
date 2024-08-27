@@ -129,6 +129,8 @@ Learn more about the power of Turborepo:
 > nest g mo agendamento
 > cd src/agendamento
 > nest g co agendamento --flat --no-spec
+> cd src/auth
+> nest g mi auth --flat --no-spec
 
 * src/auth
 > nest g pr bcrypt.provider --flat --no-spec

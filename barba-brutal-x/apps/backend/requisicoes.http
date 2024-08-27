@@ -25,3 +25,4 @@ Content-type: application/json
 
 ###
 GET http://localhost:3000/agendamento
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibm9tZSI6IlRpYWdvIiwiZW1haWwiOiJ0aUB6bWFpbC5jb20uYnIiLCJ0ZWxlZm9uZSI6IigxMCkgOTk5OTktOTk5OSIsImJhcmJlaXJvIjpmYWxzZSwiaWF0IjoxNzI0Nzc3NDUzLCJleHAiOjE3MjYwNzM0NTN9.aW2U0PxaHURQlA3vNO3OVFfdthQJjIN5hd3t4QQkNuI
