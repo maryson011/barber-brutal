@@ -1,6 +1,7 @@
 'use client'
 import useSessao from "@/data/hooks/useSessao"
 import { usePathname, useRouter } from "next/navigation"
+import Processando from "./Processando"
 
 export default function ForcarAutenticacao(props: any) {
     const { usuario, carregando } = useSessao()
@@ -10,7 +11,7 @@ export default function ForcarAutenticacao(props: any) {
     if (carregando && !usuario?.email) <div>Carregando...</div>
     if (!usuario?.email) {
         router.push(`/entrar?destino=${caminho}`)
-        return <div>Redirecionando...</div>
+        return <Processando />
     }
 
     return props.children
