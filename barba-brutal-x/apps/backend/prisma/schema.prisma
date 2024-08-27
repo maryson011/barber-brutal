@@ -20,3 +20,15 @@ model Usuario {
 
   @@map("usuario")
 }
+
+model Profissional {
+  id                    Int     @id @default(autoincrement())
+  nome                  String  @unique
+  descricao             String
+  imagemURL             String
+  avaliacao             Float
+  quantidadeAvaliacoes  Int
+
+
+  @@map("profissionais")
+}

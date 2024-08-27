@@ -131,6 +131,7 @@ Learn more about the power of Turborepo:
 > nest g co agendamento --flat --no-spec
 > cd src/auth
 > nest g mi auth --flat --no-spec
+> npx prisma migrate dev
 
 * src/auth
 > nest g pr bcrypt.provider --flat --no-spec
