@@ -1,10 +1,20 @@
-import { Usuario } from "@barbabrutal/core"
+import { profissionais, servicos, Usuario } from "@barbabrutal/core"
 import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient()
 
 async function seed() {
-    "11111"
+
+    // await prisma.profissional.deleteMany()
+    await prisma.profissional.createMany({
+        data: profissionais as any
+    })
+
+    await prisma.servico.createMany({
+        data: servicos as any
+    })
+
+    // "11111"
     const senha = '$2b$10$Pc/owO5O8DAbjqce22fnF.XCJbK0zDypbF4z3VOb.K91K.bzYRVO2'
 
     const usuarios: Usuario[] = [
@@ -24,7 +34,7 @@ async function seed() {
         },
     ]
 
-    await prisma.usuario.deleteMany()
+    // await prisma.usuario.deleteMany()
     await prisma.usuario.createMany({ data: usuarios as any })
 }
 

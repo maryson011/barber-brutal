@@ -36,7 +36,7 @@ model Profissional {
 model Servico {
   id                    Int     @id @default(autoincrement())
   nome                  String  @unique
-  decricao              String
+  descricao             String
   preco                 Float
   qtdeSlots             Int
   imagemURL             String
