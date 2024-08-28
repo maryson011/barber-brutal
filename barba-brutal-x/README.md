@@ -134,6 +134,14 @@ Learn more about the power of Turborepo:
 > npx prisma migrate dev
 > npx prisma migrate dev
 > npx prisma db seed
+> nest g mo profissional
+> nest g mo servico
+> cd src/profissional
+> nest g co profissional --flat --no-spec
+> nest g pr profissional.prisma --flat --no-spec
+> cd src/servico
+> nest g co servico --flat --no-spec
+> nest g pr servico.prisma --flat --no-spec
 
 * src/auth
 > nest g pr bcrypt.provider --flat --no-spec
