@@ -5,11 +5,12 @@ const prisma = new PrismaClient()
 
 async function seed() {
 
-    // await prisma.profissional.deleteMany()
+    await prisma.profissional.deleteMany()
     await prisma.profissional.createMany({
         data: profissionais as any
     })
 
+    await prisma.servico.deleteMany()
     await prisma.servico.createMany({
         data: servicos as any
     })
@@ -23,7 +24,7 @@ async function seed() {
             email: 'lu@email.com',
             senha,
             telefone: '(11) 99999-9999',
-            barbeiro: true,
+            barbeiro: false,
         },
         {
             nome: 'Maryson',
@@ -34,7 +35,7 @@ async function seed() {
         },
     ]
 
-    // await prisma.usuario.deleteMany()
+    await prisma.usuario.deleteMany()
     await prisma.usuario.createMany({ data: usuarios as any })
 }
 

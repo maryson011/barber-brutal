@@ -18,8 +18,8 @@ POST http://localhost:3000/auth/login
 Content-type: application/json
 
 {
-    "email": "ti@zmail.com.br",
-    "senha": "222@222"
+    "email": "lu@email.com",
+    "senha": "11111"
 }
 
 
@@ -31,3 +31,19 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibm9tZSI6I
 GET http://localhost:3000/profissionais
 ###
 GET http://localhost:3000/servicos
+###
+POST http://localhost:3000/agendamentos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5vbWUiOiJsdWFuYSIsImVtYWlsIjoibHVAZW1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTcyNDk1MTI0OCwiZXhwIjoxNzI2MjQ3MjQ4fQ.30B-uoo223v_T7s6QV-mjd4XnS9ZTNzL9C6XawhrqUs
+Content-Type: application/json
+
+{
+    "data": "2024-08-29T13:00:00.000Z",
+    "usuario": { "id": 18 },
+    "profissional": { "id": 1 },
+    "servicos": [
+        { "id": 1 },
+        { "id": 2 },
+        { "id": 3 }
+    ]
+
+}

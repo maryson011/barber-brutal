@@ -13,7 +13,7 @@ export default class NovoAgendamento implements CasoDeUso<NovoAgendamentoParams,
     async executar(params: NovoAgendamentoParams): Promise<void> {
         const { usuario, agendamento } = params
 
-        if (usuario.email !== agendamento.usuario.email) {
+        if (usuario.id !== agendamento.usuario.id) {
             throw new Error('Não é possível criar agendamento para outro usuário!')
         }
 
