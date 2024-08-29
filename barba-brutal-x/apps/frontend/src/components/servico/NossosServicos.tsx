@@ -1,8 +1,10 @@
-import { servicos } from "@barbabrutal/core";
+'use client'
 import ItemServico from "./ItemServico";
 import TituloSecao from "../shared/TituloSecao";
+import useServicos from "@/data/hooks/useServicos";
 
 export default function NossosServicos() {
+    const { servicos } = useServicos()
     return (
         <div className="flex flex-col gap-y-16">
             <TituloSecao 
