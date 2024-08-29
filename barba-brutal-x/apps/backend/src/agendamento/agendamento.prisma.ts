@@ -19,27 +19,36 @@ export class AgendamentoPrisma implements RepositorioAgendamento {
         })
     }
 
-    async buscarPorId(id: number): Promise<Agendamento | null> {
-        return await this.prisma.agendamento.findUnique({
+    buscarPorId(id: number): Promise<Agendamento | null> {
+        return this.prisma.agendamento.findUnique({
             where: { id },
             include: {
-                usuario: true,
-                profissional: true,
-                servicos: true,
+                usuario: { select: { id: true, nome: true, email: true } },
+                profissional: { select: { id: true, nome: true } },
+                servicos: { 
+                    select: { id: true, nome: true, preco: true, qtdeSlots: true } 
+                },
             },
-        })
+        }) as any;
     }
 
     async buscarPorEmail(email: string): Promise<Agendamento[]> {
-        return await this.prisma.agendamento.findMany({
+        const agendamentos =  await this.prisma.agendamento.findMany({
             where: {usuario: { email }, data: { gte: new Date() } },
             include: {
-                usuario: true,
-                profissional: true,
-                servicos: true,
+                usuario: { select: { id: true, nome: true, email: true } },
+                profissional: { select: { id: true, nome: true } },
+                servicos: { 
+                    select: { id: true, nome: true, preco: true, qtdeSlots: true } 
+                },
             },
             orderBy: { data: 'desc' }
         })
+        return agendamentos.map((agendamento) => {
+            delete agendamento.usuarioId
+            delete agendamento.profissionalId
+            return agendamento
+        }) as any
     }
 
     async buscarPorProfissionalEData(profissional: number, data: Date): Promise<Agendamento[]> {
@@ -56,11 +65,13 @@ export class AgendamentoPrisma implements RepositorioAgendamento {
                 data: { gte: inicioDoDia, lte: fimDia },
             },
             include: {
-                usuario: true,
-                servicos: true,
-                profissional: true,
+                usuario: { select: { id: true, nome: true, email: true } },
+                profissional: { select: { id: true, nome: true } },
+                servicos: { 
+                    select: { id: true, nome: true, preco: true, qtdeSlots: true } 
+                },
             },
-        })
+        }) as any
     }
 
     async excluir(id: number): Promise<void> {

@@ -7,5 +7,5 @@ export default interface Agendamento {
     data: Date
     usuario: Usuario
     profissional: Profissional
-    servicos: Servico[]
+    servicos: Partial<Servico[]>
 }

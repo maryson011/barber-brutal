@@ -23,9 +23,9 @@ Content-type: application/json
 }
 
 
-###
-GET http://localhost:3000/agendamento
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibm9tZSI6IlRpYWdvIiwiZW1haWwiOiJ0aUB6bWFpbC5jb20uYnIiLCJ0ZWxlZm9uZSI6IigxMCkgOTk5OTktOTk5OSIsImJhcmJlaXJvIjpmYWxzZSwiaWF0IjoxNzI0Nzc3NDUzLCJleHAiOjE3MjYwNzM0NTN9.aW2U0PxaHURQlA3vNO3OVFfdthQJjIN5hd3t4QQkNuI
+# ###
+# GET http://localhost:3000/agendamento
+# Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwibm9tZSI6IlRpYWdvIiwiZW1haWwiOiJ0aUB6bWFpbC5jb20uYnIiLCJ0ZWxlZm9uZSI6IigxMCkgOTk5OTktOTk5OSIsImJhcmJlaXJvIjpmYWxzZSwiaWF0IjoxNzI0Nzc3NDUzLCJleHAiOjE3MjYwNzM0NTN9.aW2U0PxaHURQlA3vNO3OVFfdthQJjIN5hd3t4QQkNuI
 
 ###
 GET http://localhost:3000/profissionais
@@ -37,7 +37,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5vbWUiO
 Content-Type: application/json
 
 {
-    "data": "2024-08-29T13:00:00.000Z",
+    "data": "2024-09-01T13:00:00.000Z",
     "usuario": { "id": 18 },
     "profissional": { "id": 1 },
     "servicos": [
@@ -47,3 +47,7 @@ Content-Type: application/json
     ]
 
 }
+
+###
+GET http://localhost:3000/agendamentos
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5vbWUiOiJsdWFuYSIsImVtYWlsIjoibHVAZW1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTcyNDk1NjQxMCwiZXhwIjoxNzI2MjUyNDEwfQ.1kAYsyGAoGzk4kzW66g-zsOwtn6whbw9veZg7YCelTo
