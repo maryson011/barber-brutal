@@ -1,6 +1,6 @@
 import { Usuario } from '@barbabrutal/core';
-import { Agendamento, NovoAgendamento, BuscarAgendamentosCliente } from '@barbabrutal/core';
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Agendamento, NovoAgendamento, BuscarAgendamentosCliente, BuscarAgendaProfissionalPorDia } from '@barbabrutal/core';
+import { Body, Controller, Get, Param, Post } from '@nestjs/common';
 import { UsuarioLogado } from 'src/shared/usuario.decorator';
 import { AgendamentoPrisma } from './agendamento.prisma';
 
@@ -25,5 +25,16 @@ export class AgendamentoController {
         return casoDeUso.executar(usuario)
     }
 
+    @Get(':profissional/:data')
+    buscarAgendaProfissionalPorDia(
+        @Param('profissional') profissional: string,
+        @Param('data') data: string
+    ) {
+        const casoDeUso = new BuscarAgendaProfissionalPorDia(this.repo)
+        return casoDeUso.executar({
+            profissional: +profissional,
+            data: new Date(data)
+        })
+    }
 
 }
