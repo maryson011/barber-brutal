@@ -41,7 +41,6 @@ Content-Type: application/json
     "usuario": { "id": 18 },
     "profissional": { "id": 1 },
     "servicos": [
-        { "id": 1 },
         { "id": 2 },
         { "id": 3 }
     ]
@@ -53,4 +52,7 @@ GET http://localhost:3000/agendamentos
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5vbWUiOiJsdWFuYSIsImVtYWlsIjoibHVAZW1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTcyNDk1NjQxMCwiZXhwIjoxNzI2MjUyNDEwfQ.1kAYsyGAoGzk4kzW66g-zsOwtn6whbw9veZg7YCelTo
 ###
 GET http://localhost:3000/agendamentos/1/2024-09-01
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5vbWUiOiJsdWFuYSIsImVtYWlsIjoibHVAZW1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTcyNDk1NjQxMCwiZXhwIjoxNzI2MjUyNDEwfQ.1kAYsyGAoGzk4kzW66g-zsOwtn6whbw9veZg7YCelTo
+###
+DELETE http://localhost:3000/agendamentos/1
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgsIm5vbWUiOiJsdWFuYSIsImVtYWlsIjoibHVAZW1haWwuY29tIiwidGVsZWZvbmUiOiIoMTEpIDk5OTk5LTk5OTkiLCJiYXJiZWlybyI6ZmFsc2UsImlhdCI6MTcyNDk1NjQxMCwiZXhwIjoxNzI2MjUyNDEwfQ.1kAYsyGAoGzk4kzW66g-zsOwtn6whbw9veZg7YCelTo

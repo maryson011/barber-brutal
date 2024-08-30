@@ -1,6 +1,6 @@
 import { Usuario } from '@barbabrutal/core';
-import { Agendamento, NovoAgendamento, BuscarAgendamentosCliente, BuscarAgendaProfissionalPorDia } from '@barbabrutal/core';
-import { Body, Controller, Get, Param, Post } from '@nestjs/common';
+import { Agendamento, NovoAgendamento, BuscarAgendamentosCliente, BuscarAgendaProfissionalPorDia, ExcluirAgendamento } from '@barbabrutal/core';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import { UsuarioLogado } from 'src/shared/usuario.decorator';
 import { AgendamentoPrisma } from './agendamento.prisma';
 
@@ -34,6 +34,18 @@ export class AgendamentoController {
         return casoDeUso.executar({
             profissional: +profissional,
             data: new Date(data)
+        })
+    }
+
+    @Delete(':id')
+    async excluirAgendamento(
+        @Param('id') id: string,
+        @UsuarioLogado() usuario: Usuario,
+    ) {
+        const casoDeUso = new ExcluirAgendamento(this.repo)
+        await casoDeUso.executar({
+            id: +id,
+            usuario
         })
     }
 
